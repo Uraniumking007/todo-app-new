@@ -4,10 +4,30 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/var.ts"></script>
+    <link rel="stylesheet" href="/src/style.css" />
+    <!-- <link rel="stylesheet" href="/dist/main.css" /> -->
+    <title>Todo App</title>
+  </head>
+  <body class="flex flex-col justify-center bg-black items-center">
+    <div class="flex justify-around w-full mt-4">
+      <input type="text" class="w-[80%] h-[3rem] rounded-lg" />
+      <button class="text-white bg-slate-700 p-3 pl-7 pr-7 rounded-xl">
+        Add
+      </button>
+    </div>
+    <div id="todo-list">Helllo</div>
+    <div id="animated-image">
+      <lottie-player
+        src="https://assets4.lottiefiles.com/packages/lf20_mf5j5kua.json"
+        mode="bounce"
+        background="transparent"
+        speed="1"
+        class="w-full h-full"
+        loop
+        autoplay
+      ></lottie-player>
+    </div>
   </body>
 </html>
