@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@lottiefiles/lottie-player": "^1.7.1",
-    "@supabase/supabase-js": "^2.8.0",
     "@xata.io/client": "^0.22.3"
   }
 }
