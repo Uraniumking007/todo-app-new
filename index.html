@@ -10,14 +10,24 @@
     <!-- <link rel="stylesheet" href="/dist/main.css" /> -->
     <title>Todo App</title>
   </head>
-  <body class="flex flex-col justify-center bg-black items-center">
+  <body class="flex flex-col justify-center bg-Olivine items-center">
     <div class="flex justify-around w-full mt-4">
-      <input type="text" class="w-[80%] h-[3rem] rounded-lg" />
-      <button class="text-white bg-slate-700 p-3 pl-7 pr-7 rounded-xl">
+      <input
+        type="text"
+        class="w-[80%] h-[3rem] bg-white rounded-lg"
+        id="input-Task"
+      />
+      <button
+        class="text-Charcoal bg-Sunglow border-black border p-3 pl-7 pr-7 rounded-xl"
+        id="add-btn"
+      >
         Add
       </button>
     </div>
-    <div id="todo-list">Helllo</div>
+    <div
+      class="w-[100%] flex flex-col justify-center items-center mt-8"
+      id="todo-list"
+    ></div>
     <div id="animated-image">
       <lottie-player
         src="https://assets4.lottiefiles.com/packages/lf20_mf5j5kua.json"
