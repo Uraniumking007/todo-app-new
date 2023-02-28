@@ -1,12 +1,12 @@
 // Generated with CLI
 import { getXataClient } from '../xata';
 import { addBtn } from '../../src/var';
-const xata = getXataClient();
 // let getAllTodos
 
 async function getTodos() {
-    let getAllTodos = await xata.db["todo-list"].getAll();
-    return getAllTodos
+  const xata = getXataClient();
+  let allTodos = await xata.db['todo-list'].getAll();
+  return allTodos;
 }
 
 export default getTodos;
