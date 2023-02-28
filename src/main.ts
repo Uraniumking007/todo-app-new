@@ -5,27 +5,25 @@ import getTodos from '../api/db-functions/getallTodos';
 import { insertTodo } from '../api/db-functions/insertTodo';
 let text: string = 'hello';
 
-const updateTodoList = () => {
+const updateTodoList = async () => {
   todoList.innerHTML = '';
-  getTodos().then((getAllTodos) => {
-    getAllTodos.forEach((todo) => {
-      const div = document.createElement('div');
-      todoList?.insertAdjacentHTML(
-        'afterbegin',
-        `      <div class="w-[60%] bg-Sunglow p-2 rounded-xl text-black m-1 shadow-lg shadow-black-500/50" id="xyz">
+  const allTodos = await getTodos();
+
+  allTodos.forEach((todo) => {
+    const div = document.createElement('div');
+    todoList?.insertAdjacentHTML(
+      'afterbegin',
+      `      <div class="w-[60%] bg-Sunglow p-2 rounded-xl text-black m-1 shadow-lg shadow-black-500/50" id="xyz">
     <input type="checkbox" id="${todo.id}"/> ${todo.Task}
   </div>`
-      );
-    });
+    );
   });
 };
 
-if (document.readyState === 'complete') {
-  updateTodoList();
-}
+updateTodoList();
 
-addBtn?.addEventListener('click', () => {
+addBtn?.addEventListener('click', async () => {
   text = inputTask?.value;
-  insertTodo(text);
-  updateTodoList();
+  insertTodo(text).then(updateTodoList);
+  // updateTodoList();
 });
