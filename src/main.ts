@@ -1,7 +1,8 @@
 import './style.css';
 import '@lottiefiles/lottie-player';
 import { addBtn, animatedImage, inputTask, todoList } from './var';
-import { getTodos, insertTodo } from './temp';
+import { getTodos } from '../utils/getTodos';
+import { insertTodo } from '../utils/insertTodos';
 let text: string = 'hello';
 
 interface todoArr {
