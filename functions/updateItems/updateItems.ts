@@ -7,9 +7,8 @@ interface todoArr {
 }
 
 export const handler: Handler = async (event, context) => {
-  const xata = getXataClient();
-
   try {
+    const xata = getXataClient();
     const data: todoArr = JSON.parse(`${event.body}`);
     // const id = event;
     const record = await xata.db['todo-list'].update(data.id, data);
