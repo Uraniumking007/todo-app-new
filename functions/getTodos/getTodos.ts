@@ -3,9 +3,17 @@ import { getXataClient } from '../../api/xata';
 export const handler: Handler = async (event, context) => {
   // const { name = 'strangr' } = event.queryStringParameters;
   const xata = getXataClient();
-  let allTodos = await xata.db['todo-list'].getAll();
-  return {
-    statusCode: 200,
-    body: JSON.stringify(allTodos),
-  };
+  try {
+    let allTodos = await xata.db['todo-list'].getAll();
+    return {
+      statusCode: 200,
+      body: JSON.stringify(allTodos),
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify(error),
+    };
+  }
 };
