@@ -9,7 +9,7 @@ export const handler: Handler = async (event, context) => {
       body: JSON.stringify(allTodos),
     };
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return {
       statusCode: 500,
       body: JSON.stringify(error),
