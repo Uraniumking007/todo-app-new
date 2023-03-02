@@ -19,6 +19,7 @@
     "@lottiefiles/lottie-player": "^1.7.1",
     "@netlify/functions": "^1.4.0",
     "@types/node": "^14.18.36",
-    "@xata.io/client": "^0.22.3"
+    "@xata.io/client": "^0.22.3",
+    "node-fetch": "^3.3.0"
   }
 }
