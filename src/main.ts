@@ -1,15 +1,19 @@
 import './style.css';
 import '@lottiefiles/lottie-player';
 import { addBtn, animatedImage, inputTask, todoList } from './var';
-import getTodos from '../api/db-functions/getallTodos';
-import { insertTodo } from '../api/db-functions/insertTodo';
+import { getTodos, insertTodo } from './temp';
 let text: string = 'hello';
 
-const updateTodoList = async () => {
-  todoList.innerHTML = '';
-  const allTodos = await getTodos();
+interface todoArr {
+  id: string;
+  Task: string;
+  isDone: boolean;
+}
 
-  allTodos.forEach((todo) => {
+const updateTodoList = async () => {
+  const allTodos = await getTodos();
+  todoList.innerHTML = '';
+  allTodos.forEach((todo: todoArr) => {
     const div = document.createElement('div');
     todoList?.insertAdjacentHTML(
       'afterbegin',
@@ -18,6 +22,11 @@ const updateTodoList = async () => {
   </div>`
     );
   });
+  if (allTodos != null) {
+    animatedImage?.classList.add('hidden');
+  } else {
+    animatedImage?.classList.remove('hidden');
+  }
 };
 
 updateTodoList();
@@ -25,5 +34,6 @@ updateTodoList();
 addBtn?.addEventListener('click', async () => {
   text = inputTask?.value;
   insertTodo(text).then(updateTodoList);
+  inputTask.value = '';
   // updateTodoList();
 });
