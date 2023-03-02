@@ -33,7 +33,7 @@ const updateTodoList = async () => {
     label.innerText = todo.Task;
     div.appendChild(input);
     div.appendChild(label);
-    div.addEventListener('click', (e) => {
+    div.addEventListener('click', () => {
       if (input.checked === true) {
         // todo.isDone = true;
         input.checked = false;

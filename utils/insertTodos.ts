@@ -4,7 +4,7 @@ export const insertTodo = async (task: string) => {
     isDone: false,
   };
   try {
-    const todos = await fetch('/.netlify/functions/insertItem', {
+    await fetch('/.netlify/functions/insertItem', {
       method: 'POST',
       headers: { contentType: 'application/json' },
       body: JSON.stringify(data),
