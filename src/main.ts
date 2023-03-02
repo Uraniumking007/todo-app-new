@@ -66,5 +66,4 @@ addBtn?.addEventListener('click', async () => {
   text = inputTask?.value;
   insertTodo(text).then(updateTodoList);
   inputTask.value = '';
-  // updateTodoList();
 });
