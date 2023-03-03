@@ -3,7 +3,7 @@ import { getXataClient } from '../../api/xata';
 export const handler: Handler = async (event, context) => {
   try {
     const xata = getXataClient();
-    let allTodos = await xata.db['todo-list'].getAll();
+    const allTodos = await xata.db['todo-list'].getAll();
     return {
       statusCode: 200,
       body: JSON.stringify(allTodos),
