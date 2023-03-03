@@ -30,7 +30,7 @@ const DatabaseClient = buildClient();
 
 const defaultOptions = {
   databaseURL: 'https://Todo-App-5gqroj.us-east-1.xata.sh/db/todo-app',
-  apiKey: process.env.Xata_Api_Secret,
+  apiKey: 'xau_yhgQpplonlzD16wjUowRbNZR97IaVA2I',
 };
 
 export class XataClient extends DatabaseClient<DatabaseSchema> {
