@@ -1,5 +1,7 @@
 import { Handler } from '@netlify/functions';
 import { getXataClient } from '../../api/xata';
+import fetch from 'node-fetch';
+
 export const handler: Handler = async (event, context) => {
   try {
     const xata = getXataClient();

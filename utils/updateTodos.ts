@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 import { todoArr } from '../src/var';
 
 export const updateTodos = async (todo: todoArr) => {
