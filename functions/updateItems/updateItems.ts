@@ -12,7 +12,6 @@ export const handler: Handler = async (event, context) => {
   try {
     const xata = getXataClient();
     const data: todoArr = JSON.parse(`${event.body}`);
-    // const id = event;
     const record = await xata.db['todo-list'].update(data.id, data);
     return {
       statusCode: 200,
