@@ -9,6 +9,7 @@ module.exports = {
         Sunglow: '#fcca46',
         Olivine: '#a1c181',
         Zomp: '#619b8a',
+        muted: '#808080',
       },
     },
   },
