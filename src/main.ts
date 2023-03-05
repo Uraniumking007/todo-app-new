@@ -22,6 +22,7 @@ interface todoArr {
 const updateTodoDOMElement = async () => {
   const allTodos = await getTodos();
   todoList.innerHTML = '';
+  todoListTrue.innerHTML = '';
   allTodos.reverse().forEach((todo: todoArr) => {
     if (todo.isDone === true) {
       createtodoDOM(todo, todoListTrue);
@@ -56,6 +57,7 @@ const createtodoDOM = (todo: todoArr, todoEle: HTMLElement) => {
   div.addEventListener('click', () => {
     toggleTodo(todo, input);
     textToggle(todo, label);
+    updateTodoDOMElement();
   });
 };
 updateTodoDOMElement();
