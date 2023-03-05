@@ -98,7 +98,7 @@ const createtodoDOM = (todo: todoArr, todoEle: HTMLElement) => {
     });
   });
   deleteBtn.addEventListener('click', () => {
-    doDelete(todo.id);
+    deleteTodo(todo.id);
     updateTodoDOMElement();
   });
   label.addEventListener('click', () => {
@@ -145,5 +145,3 @@ const deleteTodo = async (todoKey: string) => {
   await doDelete(todoKey);
   updateTodoDOMElement();
 };
-
-const editTodo = async (todoKey: string) => {};
