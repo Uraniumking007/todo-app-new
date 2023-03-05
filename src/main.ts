@@ -10,6 +10,7 @@ import {
 import { getTodos } from '../utils/getTodos';
 import { insertTodo } from '../utils/insertTodos';
 import { updateTodos } from '../utils/updateTodos';
+import { doDelete } from '../utils/doDelete';
 
 let text: string = 'hello';
 
@@ -38,10 +39,20 @@ const updateTodoDOMElement = async () => {
 };
 const createtodoDOM = (todo: todoArr, todoEle: HTMLElement) => {
   const div = document.createElement('div');
-  div.className =
-    'w-[60%] bg-Sunglow p-2 rounded-xl text-black m-1 shadow-lg shadow-black-500/50';
-  div.id = todo.id;
+  const div1 = document.createElement('div');
+  const div2 = document.createElement('div');
+  const div3 = document.createElement('div');
+  div.className = 'w-full flex justify-center items-center';
+  div1.className =
+    'w-[55%] bg-Sunglow p-2 rounded-xl text-black m-1 shadow-lg shadow-black-500/50';
+  div2.className =
+    'bg-Sunglow p-2 rounded-full text-black m-1 shadow-lg shadow-black-500/50';
+  div3.className =
+    'bg-Sunglow p-2 rounded-full text-black m-1 shadow-lg shadow-black-500/50';
   todoEle.appendChild(div);
+  div.appendChild(div1);
+  div.appendChild(div2);
+  div.appendChild(div3);
   const input = document.createElement('input');
   input.className = 'm-2';
   input.type = 'checkbox';
@@ -52,9 +63,44 @@ const createtodoDOM = (todo: todoArr, todoEle: HTMLElement) => {
   label.htmlFor = todo.id;
   label.innerText = todo.Task;
   textToggle(todo, label);
-  div.appendChild(input);
-  div.appendChild(label);
-  div.addEventListener('click', () => {
+  const deleteBtn = document.createElement('img');
+  // deleteBtn.className = 'bg-Olivine p-2 rounded text-red-500';
+  // deleteBtn.id = todo.id;
+  deleteBtn.src = 'public/delete.svg';
+  deleteBtn.className = 'w-6';
+  const editBtn = document.createElement('img');
+  editBtn.src = 'public/edit.svg';
+  editBtn.className = 'w-6';
+  const saveBtn = document.createElement('img');
+  saveBtn.src = 'public/save.svg';
+  saveBtn.className = 'w-6 hidden';
+  div1.appendChild(input);
+  div1.appendChild(label);
+  div2.appendChild(deleteBtn);
+  div3.appendChild(editBtn);
+  div3.appendChild(saveBtn);
+  editBtn.addEventListener('click', () => {
+    editBtn.classList.add('hidden');
+    saveBtn.classList.remove('hidden');
+    label.remove();
+    const inputNewTask = document.createElement('input');
+    inputNewTask.className = 'w-[90%] bg-white justify-center rounded-lg';
+    div1.appendChild(inputNewTask);
+    inputNewTask.value = todo.Task;
+    saveBtn.addEventListener('click', () => {
+      const newTask = {
+        id: todo.id,
+        Task: inputNewTask.value,
+        isDone: todo.isDone,
+      };
+      updateTodos(newTask);
+      updateTodoDOMElement();
+    });
+  });
+  deleteBtn.addEventListener('click', () => {
+    doDelete(todo.id);
+  });
+  label.addEventListener('click', () => {
     toggleTodo(todo, input);
     textToggle(todo, label);
     updateTodoDOMElement();
@@ -94,3 +140,9 @@ const toggleTodo = (todo: todoArr, input: HTMLInputElement) => {
   };
   updateTodos(inputTodo);
 };
+const deleteTodo = async (todoKey: string) => {
+  await doDelete(todoKey);
+  updateTodoDOMElement();
+};
+
+const editTodo = async (todoKey: string) => {};
