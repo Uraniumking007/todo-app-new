@@ -66,10 +66,10 @@ const createtodoDOM = (todo: todoArr, todoEle: HTMLElement) => {
   const deleteBtn = document.createElement('img');
   // deleteBtn.className = 'bg-Olivine p-2 rounded text-red-500';
   // deleteBtn.id = todo.id;
-  deleteBtn.src = 'public/delete.svg';
+  deleteBtn.src = '/public/delete.svg';
   deleteBtn.className = 'w-6';
   const editBtn = document.createElement('img');
-  editBtn.src = 'public/edit.svg';
+  editBtn.src = '/public/edit.svg';
   editBtn.className = 'w-6';
   const saveBtn = document.createElement('img');
   saveBtn.src = 'public/save.svg';
