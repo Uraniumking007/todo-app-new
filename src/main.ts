@@ -99,7 +99,6 @@ const createtodoDOM = (todo: todoArr, todoEle: HTMLElement) => {
   });
   deleteBtn.addEventListener('click', () => {
     deleteTodo(todo.id);
-    updateTodoDOMElement();
   });
   label.addEventListener('click', () => {
     toggleTodo(todo, input);
