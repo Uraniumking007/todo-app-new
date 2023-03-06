@@ -24,21 +24,22 @@ interface TodoArr {
 }
 
 const updateTodoDOMElement = async () => {
-  const allTodos = await getTodos();
-  todoList.innerHTML = '';
-  todoListTrue.innerHTML = '';
-  allTodos.reverse().forEach((todo: TodoArr) => {
-    if (todo.isDone) {
-      createtodoDOM(todo, todoListTrue);
+  await getTodos().then((allTodos) => {
+    todoList.innerHTML = '';
+    todoListTrue.innerHTML = '';
+    allTodos.reverse().forEach((todo: TodoArr) => {
+      if (todo.isDone) {
+        createtodoDOM(todo, todoListTrue);
+      } else {
+        createtodoDOM(todo, todoList);
+      }
+    });
+    if (allTodos != null) {
+      animatedImage?.classList.add('hidden');
     } else {
-      createtodoDOM(todo, todoList);
+      animatedImage?.classList.remove('hidden');
     }
   });
-  if (allTodos != null) {
-    animatedImage?.classList.add('hidden');
-  } else {
-    animatedImage?.classList.remove('hidden');
-  }
 };
 const createtodoDOM = (todo: TodoArr, todoEle: HTMLElement) => {
   const div = document.createElement('div');
