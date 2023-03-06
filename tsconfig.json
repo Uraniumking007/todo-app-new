@@ -15,5 +15,5 @@
     "noImplicitReturns": true,
     "skipLibCheck": true
   },
-  "include": ["src", "utils/insertTodos.ts", "utils/getTodos.ts"]
+  "include": ["src", "utils/insertTodos.ts", "utils/getTodos.ts", "utils/setAttributes.ts"]
 }

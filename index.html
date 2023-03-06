@@ -11,17 +11,23 @@
     <title>Todo App</title>
   </head>
   <body class="flex flex-col justify-center bg-Olivine items-center">
-    <div class="flex justify-around w-full mt-4">
+    <div class="flex justify-center w-full mt-4">
       <input
         type="text"
-        class="w-[80%] h-[3rem] bg-white rounded-lg"
+        class="w-[80%] h-[3rem] mr-2 bg-white rounded-lg"
         id="input-Task"
       />
       <button
-        class="text-Charcoal bg-Sunglow border-black border p-3 pl-7 pr-7 rounded-xl"
+        class="text-Charcoal bg-Sunglow p-3 shadow-lg shadow-black-500 rounded-full"
         id="add-btn"
       >
-        Add
+        <img src="/add.svg" alt="Add" id="add-img" class="w-[25px]" />
+        <img
+          src="/loading.svg"
+          alt="Add"
+          id="loading-img"
+          class="hidden w-[25px]"
+        />
       </button>
     </div>
     <div
