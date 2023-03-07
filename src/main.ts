@@ -15,7 +15,6 @@ import { insertTodo } from '../utils/insertTodos';
 import { updateTodos } from '../utils/updateTodos';
 import { doDelete } from '../utils/doDelete';
 import setAttributes from '../utils/setAttributes';
-let allTodos: [];
 
 let text: string = 'hello';
 
