@@ -12,7 +12,7 @@ export const addIMG = document.getElementById('add-img') as HTMLImageElement;
 export const loadingIMG = document.getElementById(
   'loading-img'
 ) as HTMLImageElement;
-export interface todoArr {
+export interface TodoArr {
   id: string;
   Task: string;
   isDone: boolean;

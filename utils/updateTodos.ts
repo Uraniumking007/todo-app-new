@@ -1,7 +1,7 @@
 // import fetch from 'node-fetch';
-import { todoArr } from '../src/var';
+import { TodoArr } from '../src/var';
 
-export const updateTodos = async (todo: todoArr) => {
+export const updateTodos = async (todo: TodoArr) => {
   const data = {
     id: `${todo.id}`,
     Task: `${todo.Task}`,

@@ -8,23 +8,19 @@ import {
   todoListTrue,
   addIMG,
   loadingIMG,
+  TodoArr,
 } from './var';
 import { getTodos } from '../utils/getTodos';
 import { insertTodo } from '../utils/insertTodos';
 import { updateTodos } from '../utils/updateTodos';
 import { doDelete } from '../utils/doDelete';
 import setAttributes from '../utils/setAttributes';
+let allTodos: [];
 
 let text: string = 'hello';
 
-interface TodoArr {
-  id: string;
-  Task: string;
-  isDone: boolean;
-}
-
 const updateTodoDOMElement = async () => {
-  await getTodos().then((allTodos) => {
+  await getTodos().then((allTodos: []) => {
     todoList.innerHTML = '';
     todoListTrue.innerHTML = '';
     allTodos.reverse().forEach((todo: TodoArr) => {
@@ -34,13 +30,15 @@ const updateTodoDOMElement = async () => {
         createtodoDOM(todo, todoList);
       }
     });
-    if (allTodos != null) {
+    console.log(allTodos);
+    if (allTodos.length > 0) {
       animatedImage?.classList.add('hidden');
     } else {
       animatedImage?.classList.remove('hidden');
     }
   });
 };
+
 const createtodoDOM = (todo: TodoArr, todoEle: HTMLElement) => {
   const div = document.createElement('div');
   const div1 = document.createElement('div');
