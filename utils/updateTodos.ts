@@ -1,11 +1,16 @@
 // import fetch from 'node-fetch';
+import { updateTodoDOMElement } from '../src/main';
 import { TodoArr } from '../src/var';
 
-export const updateTodos = async (todo: TodoArr) => {
+export const updateTodos = async (
+  id: string,
+  Task: string,
+  isDone: boolean
+) => {
   const data = {
-    id: `${todo.id}`,
-    Task: `${todo.Task}`,
-    isDone: todo.isDone,
+    id: `${id}`,
+    Task: `${Task}`,
+    isDone: isDone,
   };
   try {
     await fetch('/.netlify/functions/updateItems', {
@@ -13,6 +18,7 @@ export const updateTodos = async (todo: TodoArr) => {
       headers: { contentType: 'application/json' },
       body: JSON.stringify(data),
     });
+    updateTodoDOMElement();
     return console.log('Successfully updated');
   } catch (error) {
     console.log(error);

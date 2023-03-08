@@ -18,7 +18,7 @@ import setAttributes from '../utils/setAttributes';
 
 let text: string = 'hello';
 
-const updateTodoDOMElement = async () => {
+export const updateTodoDOMElement = async () => {
   await getTodos().then((allTodos: []) => {
     todoList.innerHTML = '';
     todoListTrue.innerHTML = '';
@@ -107,18 +107,17 @@ const createtodoDOM = (todo: TodoArr, todoEle: HTMLElement) => {
     div4.addEventListener('click', async () => {
       div4.disabled = true;
       saveBtn.src = '/loading.svg';
-      updateTodo(todo.id, inputNewTask.value, todo.isDone);
+      updateTodos(todo.id, inputNewTask.value, todo.isDone);
     });
   });
   div2.addEventListener('click', () => {
     div2.disabled = true;
     deleteBtn.src = '/loading.svg';
-    deleteTodo(todo.id);
+    doDelete(todo.id);
   });
   label.addEventListener('click', async () => {
     await toggleTodo(todo, input);
     textToggle(todo, label);
-    updateTodoDOMElement();
   });
 };
 updateTodoDOMElement();
@@ -143,31 +142,12 @@ const textToggle = (todo: TodoArr, label: HTMLLabelElement) => {
   } else {
     label.className.replace('line-through text-muted opacity-75', '');
   }
+  updateTodoDOMElement();
 };
 
 const toggleTodo = async (todo: TodoArr, input: HTMLInputElement) => {
   input.checked = !input.checked;
   todo.isDone = !todo.isDone;
-  const inputTodo = {
-    id: todo.id,
-    Task: todo.Task,
-    isDone: todo.isDone,
-  };
-  await updateTodos(inputTodo);
-  updateTodoDOMElement();
-};
-
-const deleteTodo = async (todoKey: string) => {
-  await doDelete(todoKey);
-  updateTodoDOMElement();
-};
-
-const updateTodo = async (id: string, Task: string, isDone: boolean) => {
-  const NewTask: TodoArr = {
-    id,
-    Task,
-    isDone,
-  };
-  await updateTodos(NewTask);
+  await updateTodos(todo.id, todo.Task, todo.isDone);
   updateTodoDOMElement();
 };
