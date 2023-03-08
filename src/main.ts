@@ -118,6 +118,7 @@ const createtodoDOM = (todo: TodoArr, todoEle: HTMLElement) => {
   label.addEventListener('click', async () => {
     await toggleTodo(todo, input);
     textToggle(todo, label);
+    updateTodoDOMElement();
   });
 };
 updateTodoDOMElement();
@@ -142,12 +143,10 @@ const textToggle = (todo: TodoArr, label: HTMLLabelElement) => {
   } else {
     label.className.replace('line-through text-muted opacity-75', '');
   }
-  updateTodoDOMElement();
 };
 
 const toggleTodo = async (todo: TodoArr, input: HTMLInputElement) => {
   input.checked = !input.checked;
   todo.isDone = !todo.isDone;
   await updateTodos(todo.id, todo.Task, todo.isDone);
-  updateTodoDOMElement();
 };

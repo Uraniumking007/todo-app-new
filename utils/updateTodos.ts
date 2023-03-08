@@ -1,6 +1,5 @@
 // import fetch from 'node-fetch';
 import { updateTodoDOMElement } from '../src/main';
-import { TodoArr } from '../src/var';
 
 export const updateTodos = async (
   id: string,

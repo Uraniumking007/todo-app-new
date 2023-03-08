@@ -1,5 +1,7 @@
 // import fetch from 'node-fetch';
 
+import { updateTodoDOMElement } from '../src/main';
+
 export const insertTodo = async (task: string) => {
   const data = {
     Task: `${task}`,
