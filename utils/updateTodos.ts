@@ -1,4 +1,3 @@
-// import fetch from 'node-fetch';
 import { updateTodoDOMElement } from '../src/main';
 
 export const updateTodos = async (
